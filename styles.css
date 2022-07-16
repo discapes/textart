@@ -31,32 +31,86 @@
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+	width: 300px;
 }
 
 body,
 html {
 	margin: 0px;
 	padding: 0px;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 textarea {
 	height: 250px;
 	width: 300px;
-	font-family: Arial, Helvetica, sans-serif;
+	resize: none;
 }
 
-textarea, input {
+textarea, input, button {
 	background-color: rgba(0, 0, 0, 0.5);
 	border: 1px black solid;
 	outline: none;
 	color: white;
-	resize: none;
 	font-size: larger;
+}
+
+textarea, input {
 	padding: 5px;
 }
 
-input {
+button {
+	width: 100%;
+}
+
+button:hover {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+#bottomrow {
 	height: 30px;
+	display: flex;
+	gap: 20px;
+	justify-content: stretch;
+}
+
+.dialog {
+	position: fixed;
+	top: 80%;
+	width: 200px;
+	left: 50%;
+	padding: 10px;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	text-align: center;
+	transform: translate(-50%, -50%);
+}
+
+input[type="checkbox"] {
+	appearance: none;
+	min-width: 30px;
+	margin: 0;
+	display: grid;
+	place-content: center;
+}
+
+input[type="checkbox"]::before {
+	content: "";
+	width: 20px;
+	height: 20px;
+	transform: scale(0);
+	transition: 120ms transform ease-in-out;
+	box-shadow: inset 1em 1em white;
+	transform-origin: center;
+	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+	transform: scale(1);
+}
+
+#scale {
+	width: 100%;
 }
 
 @media only screen and (max-width: 700px) {
@@ -64,13 +118,25 @@ input {
 		flex-direction: column-reverse;
 		gap: 20px;
 	}
+
 	#inputs {
 		flex-grow: 1;
 		max-height: 300px;
 	}
+
 	textarea {
 		height: 100%;
 		max-height: 250px;
 		flex-grow: 1;
+	}
+}
+
+@keyframes fade-out {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
 	}
 }

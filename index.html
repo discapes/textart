@@ -2,24 +2,29 @@
 <html lang="en">
 
 <head>
-	<script>document.documentElement.style.setProperty('--original-viewport-height', window.innerHeight+"px")</script> <!--so keyboard doesn't resize background-->
+	<script>document.documentElement.style.setProperty('--original-viewport-height', window.innerHeight + "px")</script>
+	<!--so keyboard doesn't resize background-->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Text art</title>
 	<link rel="icon" href="/favicon.png">
-	<link rel="stylesheet" href="styles.css?v=1.1">
+	<link rel="stylesheet" href="styles.css?v=1.2">
 </head>
 
 <body>
-	<img id="bg">
+	<img src="https://i.imgur.com/h9kTjqh.png" id="bg">
 	<div id="container">
 		<div id="inputs">
-			<textarea autocomplete="off" id="text">abcdefghijklmnopqrstuvwxyz</textarea>
-			<input id="scale" autocomplete="off" min="1" max="100" value="30" type="number">
+			<textarea id="text">abcdefghijklmnopqrstuvwxyz</textarea>
+			<div id="bottomrow">
+				<input id="pixelartbox" type="checkbox">
+				<input id="scale" min="1" max="100" value="30" type="number">
+				<button onclick="copyLink()">copy link</button>
+			</div>
 		</div>
 		<img id="image">
 	</div>
-	<script src="index.js?v=1.1"></script>
+	<script src="index.js?v=1.2"></script>
 </body>
 
 </html>
