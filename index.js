@@ -29,14 +29,14 @@ if (params.get('scale') != null) {
 	scaleInput.value = num
 	if (!(isNaN(num) || num < 1 || num > 100)) scale = num
 } else if (scaleInput.value != 30) {
-	num = scaleInput.value
+	num = +scaleInput.value
 	if (!(isNaN(num) || num < 1 || num > 100)) scale = num
 }
 
 draw()
 text.addEventListener('input', draw)
 scaleInput.addEventListener('input', (e) => {
-	const num = e.target.value
+	const num = +e.target.value
 	if (isNaN(num) || num < 1 || num > 100) return
 	scale = num
 	draw()
@@ -96,9 +96,9 @@ function dialog(text, duration) {
 
 function letterToPixel(cc) {
 	return [
-		(cc % 2 === 1 && 255) + cc / 2,
-		cc % 3 === 2 && 255,
-		(cc % 5 === 4 && 255) + cc,
+		(cc % 2 === 1 && 200) + cc*2-100,
+		(cc % 5 === 4 && 200) + cc*2-100,
+		(cc % 3 === 2 && 200) + cc*2-100,
 		255,
 	]
 }
