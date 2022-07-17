@@ -18,6 +18,7 @@ const background = document.getElementById('bg')
 const sizeInput = document.getElementById('scale')
 const colorInput = document.getElementById('color')
 const pixelartBox = document.getElementById('pixelartbox')
+const copyButton = document.getElementById('copy')
 const params = new URLSearchParams(window.location.search)
 import { ccToPaletteIndex, hexToRGBA, ENDESGA, PASTEL, hsvToRgb } from "./palettes.js";
 
@@ -74,6 +75,7 @@ let lastValidInput = (() => {
 
 draw()
 text.addEventListener('input', draw)
+copyButton.addEventListener('click', copyLink)
 sizeInput.addEventListener('input', (e) => {
 	if (sizeInput.value > 300) sizeInput.value = 300;
 	if (sizeInput.value >= 1 && sizeInput.value <= 300) {
